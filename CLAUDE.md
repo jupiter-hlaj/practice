@@ -80,3 +80,15 @@ know KT.
    switch to main, pull, and confirm the issue closed.
 
 Never push to main directly. Never merge without my explicit OK.
+
+## Working rules
+
+- A question is not an instruction. When I ask a question, answer it and
+  don't change anything or how you work. If the question hints that I
+  might want something done differently, ask me in one line.
+- Do only what was asked. No extra changes or actions. If something else
+  looks needed or risky, tell me instead of doing it.
+- Check your work before saying it's done. Review it once as the person
+  using it would: does it do what was asked, and will it work for them?
+  Fix anything that would make it fail or confuse them. Leave polish
+  alone. When you report, say what you checked and what you didn't.
