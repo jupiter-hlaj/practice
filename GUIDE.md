@@ -4,7 +4,8 @@ This repo has a small program with a bug in it. You will fix that bug using
 the full process: issue, branch, fix, pull request, review, merge.
 Claude Code does the work. You read, check and approve each step.
 
-This guide is written for a Mac.
+This guide works on Mac, Windows and Linux. Where a step is different on
+one of them, the step says so.
 
 **Why the terminal:** this guide uses the terminal because every step is
 visible there, which makes it the clearest way to learn the process.
@@ -30,10 +31,16 @@ this repo. If you're not the repo's owner, ask the owner to add you as a
 collaborator, then accept the invitation GitHub emails you.
 
 ### 0.2 Open a terminal
-1. Press **Cmd + Space** to open Spotlight search
-2. Type `Terminal` and press **Enter**
-3. If Terminal was already open, press **Cmd + N** to get a fresh window
-4. You now have a window with a prompt ending in `%`
+- **Mac:** press **Cmd + Space**, type `Terminal`, and press **Enter**
+- **Windows:** open the **Start** menu, type `Terminal`, and press
+  **Enter**. (On older Windows, type `PowerShell` instead.)
+- **Linux:** press **Ctrl + Alt + T**, or open **Terminal** from your
+  applications menu
+
+If a terminal is already open, open a fresh one the same way.
+
+You now have a window with a prompt where you can type. It ends in `%`
+on Mac, `>` on Windows, and usually `$` on Linux.
 
 Everything this guide calls "the terminal" means this window.
 
@@ -49,6 +56,8 @@ git --version
 ```
 python3 --version
 ```
+(On Windows, type `python` instead of `python3`.)
+
 **Read:** `Python 3.` followed by more numbers.
 
 ```
@@ -94,7 +103,8 @@ claude --version
 ```
 **Read:** a version number.
 
-**If any command says `command not found`**, that tool isn't installed.
+**If any command says `command not found`** (on Windows: `is not
+recognized`), that tool isn't installed.
 Install it before continuing.
 
 ### 0.4 Arrange your screen
@@ -102,8 +112,8 @@ You need three things visible at the same time. Put them side by side.
 1. **This guide**, wherever you have it open: on GitHub in your browser,
    or in a text editor on your computer
 2. **The repo's home page**, in your browser:
-   1. Open your web browser. If this guide is already open in it, press
-      **Cmd + T** to open a new tab.
+   1. Open your web browser. If this guide is already open in it, open
+      a new tab: **Cmd + T** on Mac, **Ctrl + T** on Windows and Linux.
    2. Click in the address bar at the top
    3. Type `github.com/jupiter-hlaj/practice` and press **Enter**
 3. **The terminal**
@@ -130,21 +140,24 @@ On the repo's home page tab:
    The address ends in `/practice.git`.
 
 ### 1.2 Choose where the copy goes
-This guide puts it on your Desktop. In the terminal, type this and
-press **Enter**:
+This guide puts it in your home folder, which works the same on every
+system. In the terminal, type this and press **Enter**:
 ```
-cd ~/Desktop
+cd ~
 ```
-(`cd` means "change directory": move into a folder.)
+(`cd` means "change directory": move into a folder. `~` means your home
+folder.)
 
 ### 1.3 Clone
-Type `git clone ` (with a space at the end), then press **Cmd + V** to
-paste the address you copied, then press **Enter**. It will look like:
+Type `git clone ` (with a space at the end), then paste the address you
+copied, then press **Enter**. To paste in the terminal: **Cmd + V** on
+Mac, **Ctrl + V** on Windows, **Ctrl + Shift + V** in most Linux
+terminals. It will look like:
 ```
 git clone https://github.com/<owner>/practice.git
 ```
 **Read:** a few lines ending in `done`. There is now a folder called
-`practice` on your Desktop.
+`practice` in your home folder.
 
 **If it says `already exists`:** you cloned it before. That's fine. Go to
 1.4, and after 1.4 type `git pull` and press **Enter** to get the latest
@@ -177,6 +190,8 @@ Go back to 1.2.
 ```
 python3 hello.py Alex
 ```
+(On Windows, type `python` instead of `python3`.)
+
 **Read:** it prints `Hello, World`.
 
 It should print `Hello, Alex`, because you gave it the name `Alex`.
@@ -259,7 +274,7 @@ Claude's work without leaving Claude.
 ### 3.6 Report the bug
 **Say:**
 ```
-There's an issue: running python3 hello.py Alex prints "Hello, World" instead of "Hello, Alex".
+There's an issue: running hello.py with the name Alex prints "Hello, World" instead of "Hello, Alex".
 ```
 
 **Read:** Claude should NOT start fixing anything. It should say it's
@@ -330,8 +345,8 @@ There is no fix yet. That's on purpose.
 
 **Read:** Claude posts the analysis as a comment on the issue.
 
-**Check in the browser:** on the issue page, press **Cmd + R** to
-refresh, then scroll down. The analysis is there as a comment.
+**Check in the browser:** on the issue page, refresh (**Cmd + R** on
+Mac, **Ctrl + R** on Windows and Linux), then scroll down. The analysis is there as a comment.
 
 ---
 
@@ -397,8 +412,9 @@ to explain again.
 ## Step 6: Verify
 
 **Read:** Claude runs checks and shows the results:
-- **The problem is gone:** `python3 hello.py Alex` now prints `Hello, Alex`
-- **The IS NOT case still works:** `python3 hello.py` (no name) still
+- **The problem is gone:** running `hello.py` with the name `Alex` now
+  prints `Hello, Alex`
+- **The IS NOT case still works:** running `hello.py` with no name still
   prints `Hello, World`
 - **The potential problems from Step 4 didn't happen**
 
@@ -468,7 +484,8 @@ switches you back to `main`, pulls the latest code, and confirms the
 issue closed.
 
 **Check in the browser:**
-1. Refresh the pull request page (**Cmd + R**). Next to the title, a
+1. Refresh the pull request page (**Cmd + R** on Mac, **Ctrl + R** on
+   Windows and Linux). Next to the title, a
    purple badge says **Merged**.
 2. Click the **Issues** tab. Your issue is gone from the list, because
    the list shows open issues by default. Click **Closed** just above the
@@ -485,13 +502,15 @@ your fix.
 ```
 ! python3 hello.py Alex
 ```
+(On Windows, type `python` instead of `python3`.)
+
 **Read:** `Hello, Alex`. The fix is now in the official copy.
 
 **Do:** leave Claude:
 ```
 /exit
 ```
-You're back at the normal terminal prompt ending in `%`.
+You're back at the normal terminal prompt.
 
 ---
 
@@ -614,6 +633,8 @@ git pull
 ```
 python3 hello.py Alex
 ```
+(On Windows, type `python` instead of `python3`.)
+
 **Read:** `Hello, World`. The bug is back, and the repo is ready for the
 next person.
 
