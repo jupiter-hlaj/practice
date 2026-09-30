@@ -185,13 +185,18 @@ It should print `Hello, Alex`, because you gave it the name `Alex`.
 ### 2.2 Read the rules Claude will follow
 **Do:** on the repo's home page tab, click **`CLAUDE.md`** in the file list.
 
-**Read:** a **Method** section, then 9 numbered steps. Claude reads this
-file automatically every time it starts in this folder, and follows it.
+**Read:** a **Method** section, then 9 numbered steps, then a **Working
+rules** section. Claude reads this file automatically every time it
+starts in this folder, and follows it.
 
 The Method section says problems here are solved with **Kepner-Tregoe
 (KT)**, a structured way to find the true cause of a problem before
 fixing it. Claude does the KT analysis. You don't need to know KT; you
 only answer plain questions if Claude asks them.
+
+The Working rules are how Claude behaves the whole time. For example: it
+answers your questions without changing anything, does only what you
+ask, and checks its work before saying it's done.
 
 Read all 9 steps so you know what's coming.
 
@@ -549,7 +554,10 @@ Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
 ### 5.1 Find your fix pull request (on GitHub)
 1. On the repo's home page tab, click the **Pull requests** tab
 2. Just above the list, click **Closed**
-3. Click your fix pull request (the one with `Fixes #N` in its description)
+3. Click your fix pull request. The list puts the newest at the top, and
+   other people's past fixes may be further down, so pick the newest one
+   about the greeting. Check that its description says `Fixes #N` with
+   your issue's number.
 
 ### 5.2 Revert it (on GitHub)
 1. Scroll to the bottom of the **Conversation** tab. Next to the message
@@ -577,7 +585,8 @@ In the terminal, inside the `practice` folder:
 gh pr list --state merged
 ```
 **Read:** a list of merged pull requests with their number, title and
-branch. Your fix is the one whose branch starts with `fix/`. Note its
+branch, newest at the top. Your fix is the newest one whose branch
+starts with `fix/` (older ones are other people's past fixes). Note its
 number.
 
 **Revert it** (use your fix pull request's number instead of `<number>`):
