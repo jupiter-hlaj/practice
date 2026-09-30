@@ -5,6 +5,26 @@ the full process: clone, reproduce, issue, problem analysis (Kepner-Tregoe),
 branch, plan, fix, verify, pull request, review, merge, the lock test, and
 revert. Claude Code does the work. You read, check and approve each step.
 
+## What you'll learn
+
+By the end of this guide you will be able to:
+1. Get a linked copy of a GitHub repo onto your computer and check that
+   it matches GitHub
+2. Reproduce a problem yourself before reporting it, and report it as a
+   GitHub issue
+3. Follow a Kepner-Tregoe problem analysis and check that it proves the
+   true cause before any fix is made
+4. Make every fix on its own branch, so `main` only changes through a
+   pull request
+5. Check a fix plan for its objectives, alternatives and potential
+   problems
+6. Check that a fix removed the problem without breaking anything else
+7. Review a pull request's changes and decide when it's ready to merge
+8. Explain what the lock on `main` does, and show that it blocks a
+   direct push
+9. Undo a merged change by reverting its pull request
+10. Use the same process in any tool, because only the buttons change
+
 This guide works on Mac, Windows and Linux. Where a step is different on
 one of them, the step says so.
 
