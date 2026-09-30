@@ -177,9 +177,15 @@ It should print `Hello, Alex`, because you gave it the name `Alex`.
 ### 2.2 Read the rules Claude will follow
 **Do:** on the repo's home page tab, click **`CLAUDE.md`** in the file list.
 
-**Read:** 9 numbered steps. Claude reads this file automatically every
-time it starts in this folder, and follows it. Read all 9 so you know
-what's coming.
+**Read:** a **Method** section, then 9 numbered steps. Claude reads this
+file automatically every time it starts in this folder, and follows it.
+
+The Method section says problems here are solved with **Kepner-Tregoe
+(KT)**, a structured way to find the true cause of a problem before
+fixing it. Claude does the KT analysis. You don't need to know KT; you
+only answer plain questions if Claude asks them.
+
+Read all 9 steps so you know what's coming.
 
 **Do:** click **`practice`** in the repo name at the top to go back.
 
@@ -255,8 +261,11 @@ Stop. Follow CLAUDE.md one step at a time.
 
 ## Step 1: The issue
 
-**Read:** Claude shows draft text for a GitHub issue: a title and a
-description of the problem.
+**Read:** Claude shows draft text for a GitHub issue. It includes:
+- A **deviation statement**: one sentence naming what's wrong, for example
+  "hello.py prints 'Hello, World' instead of the name given"
+- What should happen, and what actually happens
+- The steps to reproduce it
 
 **Check:** does it match what you saw in 2.1? If not, tell Claude what
 to change. It will redraft.
@@ -279,19 +288,37 @@ Leave this issue page open. You'll come back to it.
 
 ## Step 2: Investigate
 
-**Read:** Claude explains why the bug happens, in plain language. It
-should point at line 5 of `hello.py` and say it prints the fixed words
-"Hello, World" instead of using the name.
+Claude now works out the true cause before anyone talks about a fix.
+It reads the code, runs the program with different inputs, and looks at
+the Git history.
 
-**Check:** if the explanation doesn't make sense, **Say:**
+**If Claude asks you a question**, like "Did this ever work?", answer it
+in plain words. "I don't know" is a fine answer.
+
+**Read:** Claude shows its analysis. It has these parts:
+- **Deviation statement:** the one-sentence problem from Step 1
+- **IS / IS NOT table:** where the problem happens and where it doesn't.
+  For example, it IS wrong when a name is given, and it IS NOT wrong when
+  no name is given (then "Hello, World" is correct).
+- **Distinctions and changes:** what's different about the cases that
+  fail, and what changed around them
+- **Possible causes:** each one tested against every row of the table.
+  Any cause that doesn't explain both the IS and IS NOT side is dropped.
+- **Verified cause:** the one that's left, proven by running the program.
+  It should be line 5 of `hello.py`, which prints the fixed words
+  "Hello, World" and never uses the name.
+
+There is no fix yet. That's on purpose.
+
+**Check:** does each part make sense? If not, **Say:**
 `explain that more simply`. Keep asking until it does.
 
 **Say:** `go`
 
-**Read:** Claude posts that explanation as a comment on the issue.
+**Read:** Claude posts the analysis as a comment on the issue.
 
 **Check in the browser:** on the issue page, press **Cmd + R** to
-refresh, then scroll down. The explanation is there as a comment.
+refresh, then scroll down. The analysis is there as a comment.
 
 ---
 
@@ -315,8 +342,17 @@ on your own copy.
 
 ## Step 4: Plan
 
-**Read:** Claude describes how it will fix the bug, before writing any
-code. It should be a small change to line 5 of `hello.py`.
+**Read:** Claude's plan, before it writes any code. It has three parts:
+- **Objectives:** what the fix must do. For example: print the name
+  that's given, and still print "Hello, World" when no name is given.
+- **Alternatives:** the realistic ways to fix the verified cause, and
+  which one it picks. For a bug this small it may say there's only one
+  realistic option, and why.
+- **Potential problems:** what the fix could break, how to prevent it,
+  and how Step 6 will check it. For example: the no-name case could
+  break, so Step 6 will run the program without a name too.
+
+The fix itself should be a small change to line 5 of `hello.py`.
 
 **Check:** is it only about this bug? If it mentions changing anything
 else, **Say:**
@@ -347,9 +383,13 @@ to explain again.
 
 ## Step 6: Verify
 
-**Read:** Claude runs `python3 hello.py Alex` and shows the output.
+**Read:** Claude runs checks and shows the results:
+- **The problem is gone:** `python3 hello.py Alex` now prints `Hello, Alex`
+- **The IS NOT case still works:** `python3 hello.py` (no name) still
+  prints `Hello, World`
+- **The potential problems from Step 4 didn't happen**
 
-**Check:** the output is now `Hello, Alex`. If it isn't, **Say:**
+**Check:** both outputs are as listed above. If either isn't, **Say:**
 ```
 That's not fixed, investigate again.
 ```
