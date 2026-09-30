@@ -15,9 +15,9 @@ decision.
 | Part | General or practice-only |
 |---|---|
 | `CLAUDE.md`: KT method, the 9 steps and the working rules | General. Works on any repo. Only its examples mention `hello.py`. |
-| `GUIDE.md` Parts 0, 1 and 3 (setup, clone, starting Claude) | Mostly general |
-| `GUIDE.md` Part 2, the examples in Steps 1 to 9, and Part 5 (reset) | Practice-only. Written around the `hello.py` bug. |
-| `GUIDE.md` Part 4 (proving the lock works) | Practice-only. Proving the lock works is needed once, not on every fix. |
+| `GUIDE.md` Parts 1, 2 and 4 (setup, clone, starting Claude) | Mostly general |
+| `GUIDE.md` Part 3, the examples in Part 5 (Steps 1 to 9), and Part 7 (reset) | Practice-only. Written around the `hello.py` bug. |
+| `GUIDE.md` Part 6 (proving the lock works) | Practice-only. Proving the lock works is needed once, not on every fix. |
 | `hello.py` | Practice-only |
 
 ## Proposed changes

@@ -10,13 +10,13 @@ revert. Claude Code does the work. You read, check and approve each step.
 - **A GitHub account.** It's free. Sign up at github.com if you don't
   have one.
 - **Write access to this repo.** The repo's owner adds you as a
-  collaborator (see 0.1).
+  collaborator (see 1.1).
 - **A paid Claude plan** (Pro, Max, Team or Enterprise) or a Claude
   Console account. Claude Code doesn't work on the free plan.
 - **A Mac, Windows or Linux computer where you're allowed to install
   software.** Work computers sometimes block this, so check first.
 - **Git, the GitHub CLI, Python 3 and Claude Code.** If you don't have
-  them yet, Part 0.3 shows how to check and install them.
+  them yet, Part 1.3 shows how to check and install them.
 
 ## About this guide
 
@@ -59,14 +59,14 @@ By the end of this guide you will be able to:
 
 ---
 
-## Part 0: Get set up
+## Part 1: Get set up
 
-### 0.1 Access to this repo
+### 1.1 Access to this repo
 To create branches and pull requests here, you need **write access** to
 this repo. If you're not the repo's owner, ask the owner to add you as a
 collaborator, then accept the invitation GitHub emails you.
 
-### 0.2 Open a terminal
+### 1.2 Open a terminal
 - **Mac:** press **Cmd + Space**, type `Terminal`, and press **Enter**
 - **Windows:** open the **Start** menu, type `Terminal`, and press
   **Enter**. (On older Windows, type `PowerShell` instead.)
@@ -80,13 +80,13 @@ on Mac, `>` on Windows, and usually `$` on Linux.
 
 Everything this guide calls "the terminal" means this window.
 
-### 0.3 Check your tools
+### 1.3 Check your tools
 Type each command below in the terminal and press **Enter**. Compare what
 you see with the **Read** line.
 
 **If any command says `command not found`** (on Windows: `is not
 recognized`), that tool isn't installed. Go to **Installing a missing
-tool** at the end of 0.3, install it, then come back here and carry on.
+tool** at the end of 1.3, install it, then come back here and carry on.
 
 ```
 git --version
@@ -152,7 +152,7 @@ Follow the part for your system. Install only what's missing.
 
 **After installing anything, close the terminal and open a new one**
 (a new window, not just a new tab), so it can find the new tools. Then
-go back to the start of 0.3 and run the checks again.
+go back to the start of 1.3 and run the checks again.
 
 #### Mac
 Mac uses **Homebrew** to install tools. Check whether you have it:
@@ -244,7 +244,7 @@ Claude Code needs a paid Claude plan (Pro, Max, Team or Enterprise) or a
 Claude Console account. The first time you run `claude`, it opens your
 browser so you can log in.
 
-### 0.4 Arrange your screen
+### 1.4 Arrange your screen
 You need three things visible at the same time. Put them side by side.
 1. **This guide**, wherever you have it open: on GitHub in your browser,
    or in a text editor on your computer
@@ -267,19 +267,19 @@ You need three things visible at the same time. Put them side by side.
 
 ---
 
-## Part 1: Get the code onto your computer
+## Part 2: Get the code onto your computer
 
 The repo lives on GitHub. To work on it, you need your own copy on your
 computer, linked to GitHub. Making that copy is called **cloning**.
 
-### 1.1 Copy the repo's address
+### 2.1 Copy the repo's address
 On the repo's home page tab:
 1. Click the green **`<> Code`** button above the file list
 2. Make sure **HTTPS** is selected in the box that opens
 3. Click the copy icon (two overlapping squares) next to the address.
    The address ends in `/practice.git`.
 
-### 1.2 Choose where the copy goes
+### 2.2 Choose where the copy goes
 This guide puts it in your home folder, which works the same on every
 system. In the terminal, type this and press **Enter**:
 ```
@@ -288,7 +288,7 @@ cd ~
 (`cd` means "change directory": move into a folder. `~` means your home
 folder.)
 
-### 1.3 Clone
+### 2.3 Clone
 Type `git clone ` (with a space at the end), then paste the address you
 copied, then press **Enter**. To paste in the terminal: **Cmd + V** on
 Mac, **Ctrl + V** on Windows, **Ctrl + Shift + V** in most Linux
@@ -300,16 +300,16 @@ git clone https://github.com/<owner>/practice.git
 `practice` in your home folder.
 
 **If it says `already exists`:** you cloned it before. That's fine. Go to
-1.4, and after 1.4 type `git pull` and press **Enter** to get the latest
+2.4, and after 2.4 type `git pull` and press **Enter** to get the latest
 version.
 
-### 1.4 Go into the folder
+### 2.4 Go into the folder
 ```
 cd practice
 ```
 **Read:** your prompt now shows `practice`. You're inside the repo.
 
-### 1.5 Confirm it's linked to GitHub
+### 2.5 Confirm it's linked to GitHub
 ```
 git status
 ```
@@ -320,13 +320,13 @@ git status
 - `nothing to commit, working tree clean`: no unsaved changes
 
 If you see `fatal: not a git repository`, you're in the wrong folder.
-Go back to 1.2.
+Go back to 2.2.
 
 ---
 
-## Part 2: See the bug yourself
+## Part 3: See the bug yourself
 
-### 2.1 Run the program
+### 3.1 Run the program
 **Mac and Linux:**
 ```
 python3 hello.py Alex
@@ -341,7 +341,7 @@ python hello.py Alex
 It should print `Hello, Alex`, because you gave it the name `Alex`.
 **That's the bug you're going to fix.**
 
-### 2.2 Read the rules Claude will follow
+### 3.2 Read the rules Claude will follow
 **Do:** on the repo's home page tab, click **`CLAUDE.md`** in the file list.
 
 **Read:** a **Method** section, then 9 numbered steps, then a **Working
@@ -361,7 +361,7 @@ Read all 9 steps so you know what's coming.
 
 **Do:** click **`practice`** in the repo name at the top to go back.
 
-### 2.3 Look at the buggy code
+### 3.3 Look at the buggy code
 **Do:** click **`hello.py`** in the file list.
 
 **Read:** 5 lines. Line 3 works out the name. Line 5 prints the greeting.
@@ -371,9 +371,9 @@ You don't need to understand it yet; Claude will explain it.
 
 ---
 
-## Part 3: Start Claude
+## Part 4: Start Claude
 
-### 3.1 Launch Claude in the repo folder
+### 4.1 Launch Claude in the repo folder
 In the terminal (still inside `practice`):
 ```
 claude
@@ -381,12 +381,12 @@ claude
 **Read:** a welcome message, and below it a box with a `>` in it. Claude
 is running and waiting for you.
 
-### 3.2 The trust question (first time only)
+### 4.2 The trust question (first time only)
 **Read:** Claude may ask whether you trust the files in this folder.
 
 **Do:** choose **Yes** (use the arrow keys if needed, then press **Enter**).
 
-### 3.3 How to talk to Claude
+### 4.3 How to talk to Claude
 The `>` box at the bottom is where you type. Type a message, press
 **Enter**, and Claude's reply appears above the box. If a reply is long,
 scroll up with your mouse or trackpad to read all of it.
@@ -399,7 +399,7 @@ once before investigating and once before posting what it found. Every
 time it stops and asks, read what it wrote, then **Say:** `go`. If you
 don't understand what it wrote, ask it instead of saying `go`.
 
-### 3.4 The permission box
+### 4.4 The permission box
 Sometimes Claude needs to run a command. A box appears showing the
 command and asking if it may run it, with options like **Yes** and **No**.
 This can happen at any step, usually right after you say `go`.
@@ -410,12 +410,12 @@ This can happen at any step, usually right after you say `go`.
 3. If it does, choose **Yes** and press **Enter**
 4. If it doesn't, choose **No** and ask Claude what it's doing
 
-### 3.5 The `!` trick
+### 4.5 The `!` trick
 A message that starts with `!` runs as a terminal command instead of
 going to Claude. For example `! git branch`. You'll use this to check
 Claude's work without leaving Claude.
 
-### 3.6 Report the bug
+### 4.6 Report the bug
 **Say:**
 ```
 There's an issue: running hello.py with the name Alex prints "Hello, World" instead of "Hello, Alex".
@@ -431,7 +431,12 @@ Stop. Follow CLAUDE.md one step at a time.
 
 ---
 
-## Step 1: The issue
+## Part 5: Fix the bug
+
+These are the 9 steps from `CLAUDE.md`. Claude uses the same numbers, so
+when it says "Step 2", it means Step 2 here.
+
+### Step 1: The issue
 
 An **issue** is GitHub's record of a problem: what's wrong, how to see
 it, and the discussion about it. The fix will be linked to it, and
@@ -443,7 +448,7 @@ merging the fix closes it.
 - What should happen, and what actually happens
 - The steps to reproduce it
 
-**Check:** does it match what you saw in 2.1? If not, tell Claude what
+**Check:** does it match what you saw in 3.1? If not, tell Claude what
 to change. It will redraft.
 
 **Say:** `go`
@@ -462,7 +467,7 @@ Leave this issue page open. You'll come back to it.
 
 ---
 
-## Step 2: Investigate
+### Step 2: Investigate
 
 Claude now works out the true cause before anyone talks about a fix.
 It reads the code, runs the program with different inputs, and looks at
@@ -498,7 +503,7 @@ Mac, **Ctrl + R** on Windows and Linux), then scroll down. The analysis is there
 
 ---
 
-## Step 3: Branch
+### Step 3: Branch
 
 **Read:** Claude shows the commands it will run: one to update `main`,
 and one to create a new branch with a name like `fix/N-greeting-name`,
@@ -516,7 +521,7 @@ on your own copy.
 
 ---
 
-## Step 4: Plan
+### Step 4: Plan
 
 **Read:** Claude's plan, before it writes any code. It has three parts:
 - **Objectives:** what the fix must do. For example: print the name
@@ -540,7 +545,7 @@ Only fix this bug, nothing else.
 
 ---
 
-## Step 5: Fix
+### Step 5: Fix
 
 **Read:** Claude makes the change and shows a **diff**, which shows what
 changed:
@@ -557,7 +562,7 @@ to explain again.
 
 ---
 
-## Step 6: Verify
+### Step 6: Verify
 
 **Read:** Claude runs checks and shows the results:
 - **The problem is gone:** running `hello.py` with the name `Alex` now
@@ -575,13 +580,13 @@ That's not fixed, investigate again.
 
 ---
 
-## Step 7: Pull request
+### Step 7: Pull request
 
 A **pull request** asks for the changes on your branch to be merged into
 `main`. It shows exactly what changed, so it can be reviewed first.
 Because `main` is locked, it's the only way a change can get in.
 
-### 7.1 See what's being saved
+#### See what's being saved
 **Read:** Claude runs `git status` and shows the changed files. There
 should be only one: `hello.py`.
 
@@ -590,11 +595,11 @@ continuing.
 
 **Say:** `go`
 
-### 7.2 The pull request is created
+#### The pull request is created
 **Read:** Claude saves the change (commit), sends the branch to GitHub
 (push), and opens a pull request.
 
-### 7.3 Look at the pull request
+#### Look at the pull request
 1. Go to the repo's home page tab in your browser
 2. Click the **Pull requests** tab near the top
 3. Click the pull request's title in the list
@@ -611,7 +616,7 @@ Step 5, in red and green.
 
 ---
 
-## Step 8: Review
+### Step 8: Review
 
 **Read:** Claude reviews the pull request and summarizes anything it
 found. It uses the `/code-review` command if your Claude Code has it, and
@@ -624,7 +629,7 @@ The review tool is a second pair of eyes, not a replacement for yours.
 
 ---
 
-## Step 9: Merge
+### Step 9: Merge
 
 **Say:**
 ```
@@ -674,12 +679,12 @@ You're back at the normal terminal prompt.
 
 ---
 
-## Part 4: Prove main is locked
+## Part 6: Prove main is locked
 
 `main` is protected on GitHub: changes can only get in through a pull
 request. This part proves it.
 
-### 4.1 Make a change directly on main
+### 6.1 Make a change directly on main
 Type each line and press **Enter** after each:
 ```
 git switch main
@@ -694,7 +699,7 @@ git commit -am "Direct push test"
 ```
 (This saves the change on your computer only.)
 
-### 4.2 Try to push it straight to main
+### 6.2 Try to push it straight to main
 ```
 git push
 ```
@@ -706,7 +711,7 @@ remote: - Changes must be made through a pull request.
 ```
 That's the lock doing its job.
 
-### 4.3 Undo the test
+### 6.3 Undo the test
 ```
 git reset --hard origin/main
 ```
@@ -721,16 +726,16 @@ git status
 
 ---
 
-## Part 5: Reset for the next person
+## Part 7: Reset for the next person
 
 Your fix is now in `main`, so the bug is gone. Put it back so the next
 person has something to fix. You do this by **reverting** your fix pull
 request: GitHub creates a new pull request that undoes it, and you merge
 that.
 
-Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
+Do **either** 7.1 to 7.3 (on GitHub) **or** 7.4 (in the terminal), then 7.5.
 
-### 5.1 Find your fix pull request (on GitHub)
+### 7.1 Find your fix pull request (on GitHub)
 1. On the repo's home page tab, click the **Pull requests** tab
 2. Just above the list, click **Closed**
 3. Click your fix pull request. The list puts the newest at the top, and
@@ -738,14 +743,14 @@ Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
    about the greeting. Check that its description says `Fixes #N` with
    your issue's number.
 
-### 5.2 Revert it (on GitHub)
+### 7.2 Revert it (on GitHub)
 1. Scroll to the bottom of the **Conversation** tab. Next to the message
    saying the pull request was merged, there is a **Revert** button.
    Click it.
 2. GitHub opens a new pull request page, already filled in with a title
    starting with `Revert`. Click the green **Create pull request** button.
 
-### 5.3 Merge the revert (on GitHub)
+### 7.3 Merge the revert (on GitHub)
 1. In the box that says **No conflicts with base branch**, click the green
    **Squash and merge** button, not the **Ready to merge** button at the
    top right. (Squash is explained in Step 9.) If that button says
@@ -755,9 +760,9 @@ Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
    its place
 3. Click **Delete branch** when it appears
 
-Now go to 5.4.
+Now go to 7.5.
 
-### 5.A Revert in the terminal (instead of 5.1 to 5.3)
+### 7.4 Revert in the terminal (instead of 7.1 to 7.3)
 In the terminal, inside the `practice` folder:
 
 **Find your fix pull request's number:**
@@ -781,9 +786,9 @@ of the link is the revert pull request's number.
 gh pr merge <number> --squash --delete-branch
 ```
 
-Now go to 5.4.
+Now go to 7.5.
 
-### 5.4 Update your copy and check
+### 7.5 Update your copy and check
 In the terminal, type each line and press **Enter** after each:
 ```
 git switch main

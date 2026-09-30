@@ -45,9 +45,9 @@ Only one learner should do the exercise at a time.
 ### If `main` isn't clean
 
 `hello.py` is already fixed. That means the last learner merged their
-fix but didn't finish Part 5 of the guide, which puts the bug back.
+fix but didn't finish Part 7 of the guide, which puts the bug back.
 
-**Simplest fix:** do Part 5 of the guide yourself. Revert the last
+**Simplest fix:** do Part 7 of the guide yourself. Revert the last
 learner's fix pull request (the newest merged one whose branch starts
 with `fix/`), then run the check above again.
 
@@ -111,7 +111,7 @@ The lock on `main` (below) only works on a free GitHub plan if the repo
 is **public**. GitHub refused to create it while the repo was private,
 with: "Upgrade to GitHub Pro or make this repository public to enable
 this feature." If the repo is made private without a paid plan, direct
-pushes to `main` are no longer blocked and Part 4 of the guide fails.
+pushes to `main` are no longer blocked and Part 6 of the guide fails.
 
 ### The lock on `main`
 
