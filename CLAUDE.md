@@ -92,3 +92,14 @@ Never push to main directly. Never merge without my explicit OK.
   using it would: does it do what was asked, and will it work for them?
   Fix anything that would make it fail or confuse them. Leave polish
   alone. When you report, say what you checked and what you didn't.
+- When I ask you to check something, give a verdict. If it's fine, say
+  so and change nothing.
+- State only what the code, spec or output shows. Label anything else
+  as unverified.
+- If a request could mean two different things that lead to different
+  work, ask me one line before starting.
+- When one request asks for several things, finish all of them (still
+  stopping for "go" between the numbered steps above). Never stop
+  partway without telling me.
+- No em dashes and no puffery in anything you write, including issues,
+  comments and pull requests.
