@@ -41,3 +41,29 @@ Then run the check above again.
 
 Use the tag only to restore `hello.py`. The rest of the repo at that tag,
 including `GUIDE.md` and `CLAUDE.md`, gets out of date as they're improved.
+
+### Keep the repo public
+
+The lock on `main` (below) only works on a free GitHub plan if the repo
+is **public**. GitHub refused to create it while the repo was private,
+with: "Upgrade to GitHub Pro or make this repository public to enable
+this feature." If the repo is made private without a paid plan, direct
+pushes to `main` are no longer blocked and Part 4 of the guide fails.
+
+### The lock on `main`
+
+The lock is a GitHub ruleset. To see or rebuild it, go to the repo's
+**Settings → Rules → Rulesets**. Its settings:
+
+- **Name:** Protect main
+- **Enforcement:** Active
+- **Target:** the default branch (`main`)
+- **Bypass list:** empty, so the lock applies to the owner too
+- **Restrict deletions:** on
+- **Block force pushes:** on
+- **Require a pull request before merging:** on
+  - Required approvals: 0 (one person working alone can't approve their
+    own pull request)
+  - Dismiss stale pull request approvals when new commits are pushed: on
+
+All other settings are left at their defaults.
