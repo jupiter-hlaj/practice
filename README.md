@@ -12,7 +12,9 @@ here is what you'd do in professional development work.
 **Start here:** [GUIDE.md](GUIDE.md). Before you begin, check its
 **Prerequisites: what you need before you start** section.
 
-## For the repo owner
+---
+
+## Running this exercise for others
 
 Only one learner should do the exercise at a time.
 
