@@ -6,6 +6,14 @@ Claude Code does the work. You read, check and approve each step.
 
 This guide is written for a Mac.
 
+**Why the terminal:** this guide uses the terminal because every step is
+visible there, which makes it the clearest way to learn the process.
+Tools like VS Code run the same Git operations underneath (branch,
+commit, push, pull request, merge, revert) using buttons and panels
+instead of typed commands. The process, the order of the steps and the
+reasons for them stay the same whichever tool you use. Only where you
+click changes.
+
 **How to read this guide:**
 - **Do:** something you type or click
 - **Say:** text you type to Claude, then press **Enter**
