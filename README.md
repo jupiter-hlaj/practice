@@ -16,43 +16,87 @@ second person who has to approve each pull request. See
 
 ## For the repo owner
 
-Only one learner should do the exercise at a time. Before each learner
-starts, add them as a collaborator (**Settings → Collaborators → Add
-people**) so they can push branches and open pull requests. They accept
-the invitation from their email.
+Only one learner should do the exercise at a time.
 
-Then make sure `main` is clean:
+### Before each learner starts
 
-```
-python3 hello.py Alex
-```
-(On Windows, type `python` instead of `python3`.)
+1. **Give them access.** Add them as a collaborator (**Settings →
+   Collaborators → Add people**) so they can push branches and open pull
+   requests. They accept the invitation from their email.
+2. **Check that `main` is clean.** In your copy of the repo, run:
+   ```
+   git switch main
+   git pull
+   python3 hello.py Alex
+   ```
+   (On Windows, type `python` instead of `python3`.)
 
-It must print `Hello, World`. If it prints `Hello, Alex`, the last fix
-wasn't reverted.
+   It must print `Hello, World`, which means the bug is there and ready
+   for the learner. If it prints `Hello, Alex`, go to **If `main` isn't
+   clean** below.
 
-The tag `clean-start` marks the original buggy `hello.py`. To restore it,
-run these inside the repo folder. `main` is locked, so the restore goes
-through a pull request:
+### If `main` isn't clean
+
+`hello.py` is already fixed. That means the last learner merged their
+fix but didn't finish Part 5 of the guide, which puts the bug back.
+
+**Simplest fix:** do Part 5 of the guide yourself. Revert the last
+learner's fix pull request (the newest merged one whose branch starts
+with `fix/`), then run the check above again.
+
+**If that doesn't work**, for example because several fixes were merged
+or a revert went wrong, restore `hello.py` from the `clean-start` tag.
+
+A **tag** is a permanent, named bookmark on one point in the repo's
+history. `clean-start` marks the point where `hello.py` still had the
+original bug, so that version can always be recovered, whatever has
+happened since. `main` is locked, so the restored file still goes in
+through a pull request.
+
+Run these inside your copy of the repo:
 
 ```
 git switch main
 git pull
 git fetch --tags
+```
+Get the latest `main`, and make sure your copy has the `clean-start` tag.
+
+```
 git switch -c reset/clean-start
+```
+Make a branch for the restore.
+
+```
 git checkout clean-start -- hello.py
+```
+Replace `hello.py` with the version saved at the `clean-start` tag. Only
+that one file changes.
+
+```
 git commit -m "Restore hello.py from clean-start"
 git push -u origin reset/clean-start
+```
+Save the change and send the branch to GitHub.
+
+```
 gh pr create --fill
+```
+Open a pull request. `--fill` uses the commit message as the pull
+request's title and description.
+
+```
 gh pr merge --squash --delete-branch
 git switch main
 git pull
 ```
+Merge the pull request, delete the branch, and update your copy.
 
-Then run the check above again.
+Then run the check in **Before each learner starts** again.
 
 Use the tag only to restore `hello.py`. The rest of the repo at that tag,
-including `GUIDE.md` and `CLAUDE.md`, gets out of date as they're improved.
+including `GUIDE.md` and `CLAUDE.md`, is an old version: they have been
+improved since.
 
 ### Keep the repo public
 

@@ -410,6 +410,10 @@ Stop. Follow CLAUDE.md one step at a time.
 
 ## Step 1: The issue
 
+An **issue** is GitHub's record of a problem: what's wrong, how to see
+it, and the discussion about it. The fix will be linked to it, and
+merging the fix closes it.
+
 **Read:** Claude shows draft text for a GitHub issue. It includes:
 - A **deviation statement**: one sentence naming what's wrong, for example
   "hello.py prints 'Hello, World' instead of the name given"
@@ -550,6 +554,10 @@ That's not fixed, investigate again.
 
 ## Step 7: Pull request
 
+A **pull request** asks for the changes on your branch to be merged into
+`main`. It shows exactly what changed, so it can be reviewed first.
+Because `main` is locked, it's the only way a change can get in.
+
 ### 7.1 See what's being saved
 **Read:** Claude runs `git status` and shows the changed files. There
 should be only one: `hello.py`.
@@ -599,6 +607,10 @@ The review tool is a second pair of eyes, not a replacement for yours.
 ```
 merge it
 ```
+
+Claude merges with **squash and merge**: all the commits on your branch
+are combined into one commit on `main`, so `main`'s history has one
+entry per fix.
 
 **Read:** Claude merges the pull request into `main`, deletes the branch,
 switches you back to `main`, pulls the latest code, and confirms the
@@ -708,9 +720,10 @@ Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
 
 ### 5.3 Merge the revert (on GitHub)
 1. In the box that says **No conflicts with base branch**, click the green
-   **Squash and merge** button. (Not the **Ready to merge** button at the
-   top right.) If that button says something else, like **Merge pull
-   request**, click the arrow next to it and choose **Squash and merge**.
+   **Squash and merge** button, not the **Ready to merge** button at the
+   top right. (Squash is explained in Step 9.) If that button says
+   something else, like **Merge pull request**, click the arrow next to
+   it and choose **Squash and merge**.
 2. Click the green **Confirm squash and merge** button that appears in
    its place
 3. Click **Delete branch** when it appears
