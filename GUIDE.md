@@ -213,11 +213,14 @@ You need three things visible at the same time. Put them side by side.
    1. Open your web browser. If this guide is already open in it, open
       a new tab: **Cmd + T** on Mac, **Ctrl + T** on Windows and Linux.
    2. Click in the address bar at the top
-   3. Type `github.com/jupiter-hlaj/practice` and press **Enter**
+   3. Type the address of this repo's GitHub page and press **Enter**.
+      It looks like `github.com/<owner>/practice`, where `<owner>` is the
+      account or organization that owns the repo. If you don't know it,
+      ask whoever gave you this guide.
 3. **The terminal**
 
 **What you're looking at on the repo's home page:**
-- At the top: `jupiter-hlaj / practice`, the repo name
+- At the top: `<owner> / practice`, the repo name
 - Just below that, a row of tabs: **Code**, **Issues**, **Pull requests**,
   and more. You'll use **Code**, **Issues** and **Pull requests**.
 - In the middle: a list of files, including `CLAUDE.md`, `GUIDE.md`,
