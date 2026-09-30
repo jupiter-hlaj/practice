@@ -31,11 +31,11 @@ instead of typed commands. The process, the order of the steps and the
 reasons for them stay the same whichever tool you use. Only where you
 click changes.
 
-**How to read this guide:**
-- **Do:** something you type or click
-- **Say:** text you type to Claude, then press **Enter**
-- **Read:** what you should see on screen
-- **Check:** how to confirm the step worked
+**How to read this guide:** steps use two labels, each on its own line.
+
+- **ACTION**: something you do. It always starts with where you do it:
+  in the terminal, in Claude's `>` box, or in the browser.
+- **EXPECTED RESULT**: what should happen after the action.
 
 ## What you'll learn
 
@@ -69,6 +69,10 @@ this repo. If you're not the repo's owner, ask the owner to add you as a
 collaborator, then accept the invitation GitHub emails you.
 
 ### 1.2 Open a terminal
+
+**ACTION**
+
+On your computer, open a terminal:
 - **Mac:** press **Cmd + Space**, type `Terminal`, and press **Enter**
 - **Windows:** open the **Start** menu, type `Terminal`, and press
   **Enter**. (On older Windows, type `PowerShell` instead.)
@@ -77,23 +81,35 @@ collaborator, then accept the invitation GitHub emails you.
 
 If a terminal is already open, open a fresh one the same way.
 
-You now have a window with a prompt where you can type. It ends in `%`
-on Mac, `>` on Windows, and usually `$` on Linux.
+**EXPECTED RESULT**
+
+A window with a prompt where you can type. It ends in `%` on Mac, `>` on
+Windows, and usually `$` on Linux.
 
 Everything this guide calls "the terminal" means this window.
 
 ### 1.3 Check your tools
 Type each command below in the terminal and press **Enter**. Compare what
-you see with the **Read** line.
+you see with the **EXPECTED RESULT**.
 
 **If any command says `command not found`** (on Windows: `is not
 recognized`), that tool isn't installed. Go to **Installing a missing
 tool** at the end of 1.3, install it, then come back here and carry on.
 
+**ACTION**
+
+In the terminal:
 ```
 git --version
 ```
-**Read:** `git version` followed by a number.
+
+**EXPECTED RESULT**
+
+`git version` followed by a number.
+
+**ACTION**
+
+In the terminal:
 
 **Mac and Linux:**
 ```
@@ -104,36 +120,68 @@ python3 --version
 python --version
 ```
 
-**Read:** `Python 3.` followed by more numbers.
+**EXPECTED RESULT**
 
+`Python 3.` followed by more numbers.
+
+**ACTION**
+
+In the terminal:
 ```
 gh --version
 ```
-**Read:** `gh version` followed by a number. (`gh` is GitHub's command
-line tool. Claude uses it to create issues and pull requests.)
 
+**EXPECTED RESULT**
+
+`gh version` followed by a number. (`gh` is GitHub's command line tool.
+Claude uses it to create issues and pull requests.)
+
+**ACTION**
+
+In the terminal:
 ```
 gh auth status
 ```
-**Read:** `Logged in to github.com account` followed by your GitHub
-username. If it says you're not logged in, type `gh auth login`, press
-**Enter**, and follow the questions it asks. When it asks whether to
-authenticate Git with your GitHub credentials, answer **Yes**.
 
+**EXPECTED RESULT**
+
+`Logged in to github.com account` followed by your GitHub username.
+
+If it says you're not logged in, type `gh auth login`, press **Enter**,
+and follow the questions it asks. When it asks whether to authenticate
+Git with your GitHub credentials, answer **Yes**.
+
+**ACTION**
+
+In the terminal:
 ```
 gh auth setup-git
 ```
+
 This makes Git use your GitHub login when it sends changes to GitHub.
 Without it, sending changes can fail with a password or permission error.
 
+**ACTION**
+
+In the terminal:
 ```
 git config --global user.name
 ```
-**Read:** your name.
+
+**EXPECTED RESULT**
+
+Your name.
+
+**ACTION**
+
+In the terminal:
 ```
 git config --global user.email
 ```
-**Read:** your email address.
+
+**EXPECTED RESULT**
+
+Your email address.
 
 Git stamps every saved change with this name and email. If either
 command prints nothing, set it, using your own details inside the quotes:
@@ -144,10 +192,16 @@ git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
+**ACTION**
+
+In the terminal:
 ```
 claude --version
 ```
-**Read:** a version number.
+
+**EXPECTED RESULT**
+
+A version number.
 
 ### Installing a missing tool
 Follow the part for your system. Install only what's missing.
@@ -247,7 +301,10 @@ Claude Console account. The first time you run `claude`, it opens your
 browser so you can log in.
 
 ### 1.4 Arrange your screen
-You need three things visible at the same time. Put them side by side.
+
+**ACTION**
+
+On your computer, get three things visible at the same time, side by side:
 1. **This guide**, wherever you have it open: on GitHub in your browser,
    or in a text editor on your computer
 2. **The repo's home page**, in your browser:
@@ -260,7 +317,9 @@ You need three things visible at the same time. Put them side by side.
       ask whoever gave you this guide.
 3. **The terminal**
 
-**What you're looking at on the repo's home page:**
+**EXPECTED RESULT**
+
+On the repo's home page:
 - At the top: `<owner> / practice`, the repo name
 - Just below that, a row of tabs: **Code**, **Issues**, **Pull requests**,
   and more. You'll use **Code**, **Issues** and **Pull requests**.
@@ -275,15 +334,25 @@ The repo lives on GitHub. To work on it, you need your own copy on your
 computer, linked to GitHub. Making that copy is called **cloning**.
 
 ### 2.1 Copy the repo's address
-On the repo's home page tab:
+
+**ACTION**
+
+In the browser, on the repo's home page tab:
 1. Click the green **`<> Code`** button above the file list
 2. Make sure **HTTPS** is selected in the box that opens
-3. Click the copy icon (two overlapping squares) next to the address.
-   The address ends in `/practice.git`.
+3. Click the copy icon (two overlapping squares) next to the address
+
+**EXPECTED RESULT**
+
+The address is copied. It ends in `/practice.git`.
 
 ### 2.2 Choose where the copy goes
 This guide puts it in your home folder, which works the same on every
-system. In the terminal, type this and press **Enter**:
+system.
+
+**ACTION**
+
+In the terminal:
 ```
 cd ~
 ```
@@ -291,31 +360,50 @@ cd ~
 folder.)
 
 ### 2.3 Clone
-Type `git clone ` (with a space at the end), then paste the address you
-copied, then press **Enter**. To paste in the terminal: **Cmd + V** on
-Mac, **Ctrl + V** on Windows, **Ctrl + Shift + V** in most Linux
-terminals. It will look like:
+
+**ACTION**
+
+In the terminal, type `git clone ` (with a space at the end), then paste
+the address you copied, then press **Enter**. To paste in the terminal:
+**Cmd + V** on Mac, **Ctrl + V** on Windows, **Ctrl + Shift + V** in most
+Linux terminals. It will look like:
 ```
 git clone https://github.com/<owner>/practice.git
 ```
-**Read:** a few lines ending in `done`. There is now a folder called
-`practice` in your home folder.
+
+**EXPECTED RESULT**
+
+A few lines ending in `done`. There is now a folder called `practice` in
+your home folder.
 
 **If it says `already exists`:** you cloned it before. That's fine. Go to
 2.4, and after 2.4 type `git pull` and press **Enter** to get the latest
 version.
 
 ### 2.4 Go into the folder
+
+**ACTION**
+
+In the terminal:
 ```
 cd practice
 ```
-**Read:** your prompt now shows `practice`. You're inside the repo.
+
+**EXPECTED RESULT**
+
+Your prompt now shows `practice`. You're inside the repo.
 
 ### 2.5 Confirm it's linked to GitHub
+
+**ACTION**
+
+In the terminal:
 ```
 git status
 ```
-**Read:**
+
+**EXPECTED RESULT**
+
 - `On branch main`: you're on the official copy
 - `Your branch is up to date with 'origin/main'`: it matches GitHub
   (`origin` is Git's name for the GitHub copy)
@@ -329,6 +417,11 @@ Go back to 2.2.
 ## Part 3: See the bug yourself
 
 ### 3.1 Run the program
+
+**ACTION**
+
+In the terminal, type the command for your system and press **Enter**.
+
 **Mac and Linux:**
 ```
 python3 hello.py Alex
@@ -338,17 +431,25 @@ python3 hello.py Alex
 python hello.py Alex
 ```
 
-**Read:** it prints `Hello, World`.
+**EXPECTED RESULT**
+
+It prints `Hello, World`.
 
 It should print `Hello, Alex`, because you gave it the name `Alex`.
 **That's the bug you're going to fix.**
 
 ### 3.2 Read the rules Claude will follow
-**Do:** on the repo's home page tab, click **`CLAUDE.md`** in the file list.
 
-**Read:** a **Method** section, then 9 numbered steps, then a **Working
-rules** section. Claude reads this file automatically every time it
-starts in this folder, and follows it.
+**ACTION**
+
+In the browser, on the repo's home page tab, click **`CLAUDE.md`** in
+the file list.
+
+**EXPECTED RESULT**
+
+A **Method** section, then 9 numbered steps, then a **Working rules**
+section. Claude reads this file automatically every time it starts in
+this folder, and follows it.
 
 The Method section says problems here are solved with **Kepner-Tregoe
 (KT)**, a structured way to find the true cause of a problem before
@@ -359,52 +460,67 @@ The Working rules are how Claude behaves the whole time. For example: it
 answers your questions without changing anything, does only what you
 ask, and checks its work before saying it's done.
 
-Read all 9 steps so you know what's coming.
+**ACTION**
 
-**Do:** click **`practice`** in the repo name at the top to go back.
+In the browser, read all 9 steps so you know what's coming. Then click
+**`practice`** in the repo name at the top to go back.
 
 ### 3.3 Look at the buggy code
-**Do:** click **`hello.py`** in the file list.
 
-**Read:** 5 lines. Line 3 works out the name. Line 5 prints the greeting.
-You don't need to understand it yet; Claude will explain it.
+**ACTION**
 
-**Do:** click **`practice`** at the top to go back.
+In the browser, click **`hello.py`** in the file list.
+
+**EXPECTED RESULT**
+
+5 lines. Line 3 works out the name. Line 5 prints the greeting. You
+don't need to understand it yet; Claude will explain it.
+
+**ACTION**
+
+In the browser, click **`practice`** at the top to go back.
 
 ---
 
 ## Part 4: Start Claude
 
 ### 4.1 Launch Claude in the repo folder
+
+**ACTION**
+
 In the terminal (still inside `practice`):
 ```
 claude
 ```
-**Read:** a welcome message, and below it a box with a `>` in it. Claude
-is running and waiting for you.
+
+**EXPECTED RESULT**
+
+A welcome message, and below it a box with a `>` in it. Claude is
+running and waiting for you.
 
 ### 4.2 The trust question (first time only)
-**Read:** Claude may ask whether you trust the files in this folder.
 
-**Do:** choose **Yes** (use the arrow keys if needed, then press **Enter**).
+**ACTION**
+
+In Claude, if it asks whether you trust the files in this folder, choose
+**Yes** (use the arrow keys if needed, then press **Enter**).
 
 ### 4.3 How to talk to Claude
 The `>` box at the bottom is where you type. Type a message, press
 **Enter**, and Claude's reply appears above the box. If a reply is long,
 scroll up with your mouse or trackpad to read all of it.
 
-When this guide says **Say:** `go`, type `go` in the box and press **Enter**.
-
 **Claude stops a lot, on purpose.** `CLAUDE.md` tells it to stop and wait
 before each step. Inside one step it may stop more than once, for example
 once before investigating and once before posting what it found. Every
-time it stops and asks, read what it wrote, then **Say:** `go`. If you
-don't understand what it wrote, ask it instead of saying `go`.
+time it stops and asks, read what it wrote, then type `go` in Claude's
+`>` box and press **Enter**. If you don't understand what it wrote, ask
+it instead of typing `go`.
 
 ### 4.4 The permission box
 Sometimes Claude needs to run a command. A box appears showing the
 command and asking if it may run it, with options like **Yes** and **No**.
-This can happen at any step, usually right after you say `go`.
+This can happen at any step, usually right after you type `go`.
 
 **Every time this happens:**
 1. Read the command in the box
@@ -418,15 +534,21 @@ going to Claude. For example `! git branch`. You'll use this to check
 Claude's work without leaving Claude.
 
 ### 4.6 Report the bug
-**Say:**
+
+**ACTION**
+
+In Claude's `>` box, type this and press **Enter**:
 ```
 There's an issue: running hello.py with the name Alex prints "Hello, World" instead of "Hello, Alex".
 ```
 
-**Read:** Claude should NOT start fixing anything. It should say it's
-starting at Step 1 and wait for you.
+**EXPECTED RESULT**
 
-**If it jumps ahead and starts fixing, Say:**
+Claude does NOT start fixing anything. It says it's starting at Step 1
+and waits for you.
+
+**If it jumps ahead and starts fixing**, type this in Claude's `>` box
+and press **Enter**:
 ```
 Stop. Follow CLAUDE.md one step at a time.
 ```
@@ -444,26 +566,35 @@ An **issue** is GitHub's record of a problem: what's wrong, how to see
 it, and the discussion about it. The fix will be linked to it, and
 merging the fix closes it.
 
-**Read:** Claude shows draft text for a GitHub issue. It includes:
+**EXPECTED RESULT**
+
+Claude shows draft text for a GitHub issue. It includes:
 - A **deviation statement**: one sentence naming what's wrong, for example
   "hello.py prints 'Hello, World' instead of the name given"
 - What should happen, and what actually happens
 - The steps to reproduce it
 
-**Check:** does it match what you saw in 3.1? If not, tell Claude what
-to change. It will redraft.
+**ACTION**
 
-**Say:** `go`
+In Claude's `>` box: if the draft doesn't match what you saw in 3.1,
+tell Claude what to change, and it will redraft. If it matches, type
+`go` and press **Enter**.
 
-**Read:** Claude creates the issue and shows its number, for example
-**#2**. Remember it. The rest of this guide calls it **#N**.
-(GitHub numbers issues and pull requests from the same counter, so
-your number depends on what's been created before.)
+**EXPECTED RESULT**
 
-**Check in the browser:**
-1. On the repo's home page tab, click the **Issues** tab near the top
-2. Your issue is in the list. Click its title to open it.
-3. You're on the issue page: title, number and description
+Claude creates the issue and shows its number, for example **#2**.
+Remember it. The rest of this guide calls it **#N**. (GitHub numbers
+issues and pull requests from the same counter, so your number depends
+on what's been created before.)
+
+**ACTION**
+
+In the browser, on the repo's home page tab, click the **Issues** tab
+near the top, then click your issue's title.
+
+**EXPECTED RESULT**
+
+The issue page, with its title, number and description.
 
 Leave this issue page open. You'll come back to it.
 
@@ -476,9 +607,11 @@ It reads the code, runs the program with different inputs, and looks at
 the Git history.
 
 **If Claude asks you a question**, like "Did this ever work?", answer it
-in plain words. "I don't know" is a fine answer.
+in Claude's `>` box in plain words. "I don't know" is a fine answer.
 
-**Read:** Claude shows its analysis. It has these parts:
+**EXPECTED RESULT**
+
+Claude shows its analysis. It has these parts:
 - **Deviation statement:** the one-sentence problem from Step 1
 - **IS / IS NOT table:** where the problem happens and where it doesn't.
   For example, it IS wrong when a name is given, and it IS NOT wrong when
@@ -493,39 +626,56 @@ in plain words. "I don't know" is a fine answer.
 
 There is no fix yet. That's on purpose.
 
-**Check:** does each part make sense? If not, **Say:**
-`explain that more simply`. Keep asking until it does.
+**ACTION**
 
-**Say:** `go`
+In Claude's `>` box: if any part doesn't make sense, type
+`explain that more simply` and press **Enter**. Keep asking until it
+does. Then type `go` and press **Enter**.
 
-**Read:** Claude posts the analysis as a comment on the issue.
+**EXPECTED RESULT**
 
-**Check in the browser:** on the issue page, refresh (**Cmd + R** on
-Mac, **Ctrl + R** on Windows and Linux), then scroll down. The analysis is there as a comment.
+Claude posts the analysis as a comment on the issue.
+
+**ACTION**
+
+In the browser, on the issue page, refresh (**Cmd + R** on Mac,
+**Ctrl + R** on Windows and Linux), then scroll down.
+
+**EXPECTED RESULT**
+
+The analysis is there as a comment.
 
 ---
 
 ### Step 3: Branch
 
-**Read:** Claude shows the commands it will run: one to update `main`,
-and one to create a new branch with a name like `fix/N-greeting-name`,
-with your issue's number in place of N.
+**EXPECTED RESULT**
 
-**Say:** `go`
+Claude shows the commands it will run: one to update `main`, and one to
+create a new branch with a name like `fix/N-greeting-name`, with your
+issue's number in place of N.
 
-**Check:**
+**ACTION**
+
+In Claude's `>` box, type `go` and press **Enter**. When it's done, type
+this and press **Enter**:
 ```
 ! git branch
 ```
-**Read:** a list of branches. The one with a `*` next to it is the one
-you're on. It should be the new branch, not `main`. You're now working
-on your own copy.
+
+**EXPECTED RESULT**
+
+A list of branches. The one with a `*` next to it is the one you're on.
+It should be the new branch, not `main`. You're now working on your own
+copy.
 
 ---
 
 ### Step 4: Plan
 
-**Read:** Claude's plan, before it writes any code. It has three parts:
+**EXPECTED RESULT**
+
+Claude's plan, before it writes any code. It has three parts:
 - **Objectives:** what the fix must do. For example: print the name
   that's given, and still print "Hello, World" when no name is given.
 - **Alternatives:** the realistic ways to fix the verified cause, and
@@ -537,48 +687,55 @@ on your own copy.
 
 The fix itself should be a small change to line 5 of `hello.py`.
 
-**Check:** is it only about this bug? If it mentions changing anything
-else, **Say:**
+**ACTION**
+
+In Claude's `>` box: if the plan mentions changing anything other than
+this bug, type this and press **Enter**:
 ```
 Only fix this bug, nothing else.
 ```
-
-**Say:** `go`
+If the plan is only about this bug, type `go` and press **Enter**.
 
 ---
 
 ### Step 5: Fix
 
-**Read:** Claude makes the change and shows a **diff**, which shows what
-changed:
+**EXPECTED RESULT**
+
+Claude makes the change and shows a **diff**, which shows what changed:
 - A line starting with `-` (often red) is the old line, being removed
 - A line starting with `+` (often green) is the new line, being added
 
-You should see the old `print("Hello, World")` line with a `-`, and a new
-`print` line that uses `name`, with a `+`.
+The old `print("Hello, World")` line has a `-`, and a new `print` line
+that uses `name` has a `+`.
 
-**Check:** if Claude's explanation of the diff doesn't make sense, ask it
-to explain again.
+**ACTION**
 
-**Say:** `go`
+In Claude's `>` box: if Claude's explanation of the diff doesn't make
+sense, ask it to explain again. When it does, type `go` and press
+**Enter**.
 
 ---
 
 ### Step 6: Verify
 
-**Read:** Claude runs checks and shows the results:
+**EXPECTED RESULT**
+
+Claude runs checks and shows the results:
 - **The problem is gone:** running `hello.py` with the name `Alex` now
   prints `Hello, Alex`
 - **The IS NOT case still works:** running `hello.py` with no name still
   prints `Hello, World`
 - **The potential problems from Step 4 didn't happen**
 
-**Check:** both outputs are as listed above. If either isn't, **Say:**
+**ACTION**
+
+In Claude's `>` box: if either output isn't as listed above, type this
+and press **Enter**:
 ```
 That's not fixed, investigate again.
 ```
-
-**Say:** `go`
+If both are right, type `go` and press **Enter**.
 
 ---
 
@@ -589,51 +746,70 @@ A **pull request** asks for the changes on your branch to be merged into
 Because `main` is locked, it's the only way a change can get in.
 
 #### See what's being saved
-**Read:** Claude runs `git status` and shows the changed files. There
-should be only one: `hello.py`.
 
-**Check:** if any other file is listed, ask Claude what it is before
-continuing.
+**EXPECTED RESULT**
 
-**Say:** `go`
+Claude runs `git status` and shows the changed files. There is only one:
+`hello.py`.
+
+**ACTION**
+
+In Claude's `>` box: if any other file is listed, ask Claude what it is
+before continuing. If it's only `hello.py`, type `go` and press **Enter**.
 
 #### The pull request is created
-**Read:** Claude saves the change (commit), sends the branch to GitHub
-(push), and opens a pull request.
+
+**EXPECTED RESULT**
+
+Claude saves the change (commit), sends the branch to GitHub (push), and
+opens a pull request.
 
 #### Look at the pull request
-1. Go to the repo's home page tab in your browser
-2. Click the **Pull requests** tab near the top
-3. Click the pull request's title in the list
 
-**Read:** the pull request page has its own row of tabs:
-**Conversation**, **Commits**, **Checks**, **Files changed**.
+**ACTION**
 
-**Check, Conversation tab** (you start here): the description contains
-`Fixes #N` with your issue's number. This links the pull request to the
-issue.
+In the browser, go to the repo's home page tab, click the
+**Pull requests** tab near the top, then click the pull request's title.
 
-**Check, Files changed tab:** click it. You'll see the same diff as in
-Step 5, in red and green.
+**EXPECTED RESULT**
+
+The pull request page, with its own row of tabs: **Conversation**,
+**Commits**, **Checks**, **Files changed**. On the **Conversation** tab
+(you start here), the description contains `Fixes #N` with your issue's
+number. This links the pull request to the issue.
+
+**ACTION**
+
+In the browser, click the **Files changed** tab.
+
+**EXPECTED RESULT**
+
+The same diff as in Step 5, in red and green.
 
 ---
 
 ### Step 8: Review
 
-**Read:** Claude reviews the pull request and summarizes anything it
-found. It uses the `/code-review` command if your Claude Code has it, and
-otherwise reads the change itself. For a change this small it will
-probably find nothing.
+**EXPECTED RESULT**
 
-**Do:** in the browser, on the **Files changed** tab, read the change
-yourself and ask: does this change do only what the issue asked for?
-The review tool is a second pair of eyes, not a replacement for yours.
+Claude reviews the pull request and summarizes anything it found. It
+uses the `/code-review` command if your Claude Code has it, and otherwise
+reads the change itself. For a change this small it will probably find
+nothing.
+
+**ACTION**
+
+In the browser, on the **Files changed** tab, read the change yourself
+and ask: does this change do only what the issue asked for? The review
+tool is a second pair of eyes, not a replacement for yours.
 
 ---
 
 ### Step 9: Merge
 
-**Say:**
+**ACTION**
+
+In Claude's `>` box, type this and press **Enter**:
 ```
 merge it
 ```
@@ -642,25 +818,53 @@ Claude merges with **squash and merge**: all the commits on your branch
 are combined into one commit on `main`, so `main`'s history has one
 entry per fix.
 
-**Read:** Claude merges the pull request into `main`, deletes the branch,
-switches you back to `main`, pulls the latest code, and confirms the
-issue closed.
+**EXPECTED RESULT**
 
-**Check in the browser:**
-1. Refresh the pull request page (**Cmd + R** on Mac, **Ctrl + R** on
-   Windows and Linux). Next to the title, a
-   purple badge says **Merged**.
-2. Click the **Issues** tab. Your issue is gone from the list, because
-   the list shows open issues by default. Click **Closed** just above the
-   list, then click your issue: it says **Closed** and links to the pull
-   request.
+Claude merges the pull request into `main`, deletes the branch, switches
+you back to `main`, pulls the latest code, and confirms the issue closed.
 
-**Check in the terminal:**
+**ACTION**
+
+In the browser, refresh the pull request page (**Cmd + R** on Mac,
+**Ctrl + R** on Windows and Linux).
+
+**EXPECTED RESULT**
+
+Next to the title, a purple badge says **Merged**.
+
+**ACTION**
+
+In the browser, click the **Issues** tab.
+
+**EXPECTED RESULT**
+
+Your issue is gone from the list, because the list shows open issues by
+default.
+
+**ACTION**
+
+In the browser, click **Closed** just above the list, then click your
+issue.
+
+**EXPECTED RESULT**
+
+It says **Closed** and links to the pull request.
+
+**ACTION**
+
+In Claude's `>` box, type this and press **Enter**:
 ```
 ! git log --oneline
 ```
-**Read:** a list of saved changes, newest at the top. The top one is
-your fix.
+
+**EXPECTED RESULT**
+
+A list of saved changes, newest at the top. The top one is your fix.
+
+**ACTION**
+
+In Claude's `>` box, type the command for your system and press
+**Enter**.
 
 **Mac and Linux:**
 ```
@@ -671,12 +875,19 @@ your fix.
 ! python hello.py Alex
 ```
 
-**Read:** `Hello, Alex`. The fix is now in the official copy.
+**EXPECTED RESULT**
 
-**Do:** leave Claude:
+`Hello, Alex`. The fix is now in the official copy.
+
+**ACTION**
+
+In Claude's `>` box, type this and press **Enter** to leave Claude:
 ```
 /exit
 ```
+
+**EXPECTED RESULT**
+
 You're back at the normal terminal prompt.
 
 ---
@@ -687,7 +898,10 @@ You're back at the normal terminal prompt.
 request. This part proves it.
 
 ### 6.1 Make a change directly on main
-Type each line and press **Enter** after each:
+
+**ACTION**
+
+In the terminal, type each line and press **Enter** after each:
 ```
 git switch main
 ```
@@ -702,10 +916,17 @@ git commit -am "Direct push test"
 (This saves the change on your computer only.)
 
 ### 6.2 Try to push it straight to main
+
+**ACTION**
+
+In the terminal:
 ```
 git push
 ```
-**Read:** GitHub rejects it. The message includes these lines:
+
+**EXPECTED RESULT**
+
+GitHub rejects it. The message includes these lines:
 ```
 remote: error: GH013: Repository rule violations found for refs/heads/main.
 remote: - Changes must be made through a pull request.
@@ -714,17 +935,22 @@ remote: - Changes must be made through a pull request.
 That's the lock doing its job.
 
 ### 6.3 Undo the test
+
+**ACTION**
+
+In the terminal, type each line and press **Enter** after each:
 ```
 git reset --hard origin/main
 ```
 (This throws away your test change and makes your copy match GitHub's
 `main` exactly.)
-
-**Check:**
 ```
 git status
 ```
-**Read:** your branch is up to date and there's nothing to commit.
+
+**EXPECTED RESULT**
+
+Your branch is up to date and there's nothing to commit.
 
 ---
 
@@ -738,21 +964,42 @@ that.
 Do **either** 7.1 to 7.3 (on GitHub) **or** 7.4 (in the terminal), then 7.5.
 
 ### 7.1 Find your fix pull request (on GitHub)
+
+**ACTION**
+
+In the browser:
 1. On the repo's home page tab, click the **Pull requests** tab
 2. Just above the list, click **Closed**
 3. Click your fix pull request. The list puts the newest at the top, and
    other people's past fixes may be further down, so pick the newest one
-   about the greeting. Check that its description says `Fixes #N` with
-   your issue's number.
+   about the greeting.
+
+**EXPECTED RESULT**
+
+Its description says `Fixes #N` with your issue's number.
 
 ### 7.2 Revert it (on GitHub)
-1. Scroll to the bottom of the **Conversation** tab. Next to the message
-   saying the pull request was merged, there is a **Revert** button.
-   Click it.
-2. GitHub opens a new pull request page, already filled in with a title
-   starting with `Revert`. Click the green **Create pull request** button.
+
+**ACTION**
+
+In the browser, scroll to the bottom of the **Conversation** tab. Next
+to the message saying the pull request was merged, click the **Revert**
+button.
+
+**EXPECTED RESULT**
+
+GitHub opens a new pull request page, already filled in with a title
+starting with `Revert`.
+
+**ACTION**
+
+In the browser, click the green **Create pull request** button.
 
 ### 7.3 Merge the revert (on GitHub)
+
+**ACTION**
+
+In the browser:
 1. In the box that says **No conflicts with base branch**, click the green
    **Squash and merge** button, not the **Ready to merge** button at the
    top right. (Squash is explained in Step 9.) If that button says
@@ -765,25 +1012,37 @@ Do **either** 7.1 to 7.3 (on GitHub) **or** 7.4 (in the terminal), then 7.5.
 Now go to 7.5.
 
 ### 7.4 Revert in the terminal (instead of 7.1 to 7.3)
-In the terminal, inside the `practice` folder:
 
-**Find your fix pull request's number:**
+**ACTION**
+
+In the terminal, inside the `practice` folder, find your fix pull
+request's number:
 ```
 gh pr list --state merged
 ```
-**Read:** a list of merged pull requests with their number, title and
-branch, newest at the top. Your fix is the newest one whose branch
-starts with `fix/` (older ones are other people's past fixes). Note its
-number.
 
-**Revert it** (use your fix pull request's number instead of `<number>`):
+**EXPECTED RESULT**
+
+A list of merged pull requests with their number, title and branch,
+newest at the top. Your fix is the newest one whose branch starts with
+`fix/` (older ones are other people's past fixes). Note its number.
+
+**ACTION**
+
+In the terminal, revert it (use your fix pull request's number instead
+of `<number>`):
 ```
 gh pr revert <number>
 ```
-**Read:** a link to the new revert pull request. The number at the end
-of the link is the revert pull request's number.
 
-**Merge the revert** (use the revert pull request's number):
+**EXPECTED RESULT**
+
+A link to the new revert pull request. The number at the end of the
+link is the revert pull request's number.
+
+**ACTION**
+
+In the terminal, merge the revert (use the revert pull request's number):
 ```
 gh pr merge <number> --squash --delete-branch
 ```
@@ -791,6 +1050,9 @@ gh pr merge <number> --squash --delete-branch
 Now go to 7.5.
 
 ### 7.5 Update your copy and check
+
+**ACTION**
+
 In the terminal, type each line and press **Enter** after each:
 ```
 git switch main
@@ -798,6 +1060,8 @@ git switch main
 ```
 git pull
 ```
+Then the command for your system:
+
 **Mac and Linux:**
 ```
 python3 hello.py Alex
@@ -807,8 +1071,10 @@ python3 hello.py Alex
 python hello.py Alex
 ```
 
-**Read:** `Hello, World`. The bug is back, and the repo is ready for the
-next person.
+**EXPECTED RESULT**
+
+`Hello, World`. The bug is back, and the repo is ready for the next
+person.
 
 ---
 
