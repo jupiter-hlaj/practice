@@ -80,3 +80,26 @@ know KT.
    switch to main, pull, and confirm the issue closed.
 
 Never push to main directly. Never merge without my explicit OK.
+
+## Working rules
+
+- A question is not an instruction. When I ask a question, answer it and
+  don't change anything or how you work. If the question hints that I
+  might want something done differently, ask me in one line.
+- Do only what was asked. No extra changes or actions. If something else
+  looks needed or risky, tell me instead of doing it.
+- Check your work before saying it's done. Review it once as the person
+  using it would: does it do what was asked, and will it work for them?
+  Fix anything that would make it fail or confuse them. Leave polish
+  alone. When you report, say what you checked and what you didn't.
+- When I ask you to check something, give a verdict. If it's fine, say
+  so and change nothing.
+- State only what the code, spec or output shows. Label anything else
+  as unverified.
+- If a request could mean two different things that lead to different
+  work, ask me one line before starting.
+- When one request asks for several things, finish all of them (still
+  stopping for "go" between the numbered steps above). Never stop
+  partway without telling me.
+- No em dashes and no puffery in anything you write, including issues,
+  comments and pull requests.
