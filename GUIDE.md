@@ -551,9 +551,13 @@ Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
    starting with `Revert`. Click the green **Create pull request** button.
 
 ### 5.3 Merge the revert (on GitHub)
-1. On the new pull request, click the green merge button, then the green
-   confirm button that appears
-2. Click **Delete branch** when it appears
+1. In the box that says **No conflicts with base branch**, click the green
+   **Squash and merge** button. (Not the **Ready to merge** button at the
+   top right.) If that button says something else, like **Merge pull
+   request**, click the arrow next to it and choose **Squash and merge**.
+2. Click the green **Confirm squash and merge** button that appears in
+   its place
+3. Click **Delete branch** when it appears
 
 Now go to 5.4.
 
