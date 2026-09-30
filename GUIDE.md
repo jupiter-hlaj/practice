@@ -54,7 +54,32 @@ gh auth status
 ```
 **Read:** `Logged in to github.com account` followed by your GitHub
 username. If it says you're not logged in, type `gh auth login`, press
-**Enter**, and follow the questions it asks.
+**Enter**, and follow the questions it asks. When it asks whether to
+authenticate Git with your GitHub credentials, answer **Yes**.
+
+```
+gh auth setup-git
+```
+This makes Git use your GitHub login when it sends changes to GitHub.
+Without it, sending changes can fail with a password or permission error.
+
+```
+git config --global user.name
+```
+**Read:** your name.
+```
+git config --global user.email
+```
+**Read:** your email address.
+
+Git stamps every saved change with this name and email. If either
+command prints nothing, set it, using your own details inside the quotes:
+```
+git config --global user.name "Your Name"
+```
+```
+git config --global user.email "you@example.com"
+```
 
 ```
 claude --version
@@ -236,7 +261,9 @@ to change. It will redraft.
 **Say:** `go`
 
 **Read:** Claude creates the issue and shows its number, for example
-**#1**. Remember the number.
+**#2**. Remember it. The rest of this guide calls it **#N**.
+(GitHub numbers issues and pull requests from the same counter, so
+your number depends on what's been created before.)
 
 **Check in the browser:**
 1. On the repo's home page tab, click the **Issues** tab near the top
@@ -268,7 +295,8 @@ refresh, then scroll down. The explanation is there as a comment.
 ## Step 3: Branch
 
 **Read:** Claude shows the commands it will run: one to update `main`,
-and one to create a new branch with a name like `fix/1-greeting-name`.
+and one to create a new branch with a name like `fix/N-greeting-name`,
+with your issue's number in place of N.
 
 **Say:** `go`
 
@@ -351,7 +379,7 @@ continuing.
 **Conversation**, **Commits**, **Checks**, **Files changed**.
 
 **Check, Conversation tab** (you start here): the description contains
-`Fixes #1` (or your issue's number). This links the pull request to the
+`Fixes #N` with your issue's number. This links the pull request to the
 issue.
 
 **Check, Files changed tab:** click it. You'll see the same diff as in
@@ -361,11 +389,10 @@ Step 5, in red and green.
 
 ## Step 8: Review
 
-**Read:** Claude runs `/code-review` on the pull request and summarizes
-anything it found. For a change this small it will probably find nothing.
-
-**If Claude says it can't run `/code-review`**, run it yourself: type
-`/code-review` in the `>` box and press **Enter**.
+**Read:** Claude reviews the pull request and summarizes anything it
+found. It uses the `/code-review` command if your Claude Code has it, and
+otherwise reads the change itself. For a change this small it will
+probably find nothing.
 
 **Do:** in the browser, on the **Files changed** tab, read the change
 yourself and ask: does this change do only what the issue asked for?
@@ -436,9 +463,13 @@ git commit -am "Direct push test"
 ```
 git push
 ```
-**Read:** GitHub rejects it. The message mentions a rule violation and
-says changes must be made through a pull request. That's the lock doing
-its job.
+**Read:** GitHub rejects it. The message includes these lines:
+```
+remote: error: GH013: Repository rule violations found for refs/heads/main.
+remote: - Changes must be made through a pull request.
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+```
+That's the lock doing its job.
 
 ### 4.3 Undo the test
 ```
@@ -452,6 +483,73 @@ git reset --hard origin/main
 git status
 ```
 **Read:** your branch is up to date and there's nothing to commit.
+
+---
+
+## Part 5: Reset for the next person
+
+Your fix is now in `main`, so the bug is gone. Put it back so the next
+person has something to fix. This goes through a pull request too,
+because `main` is locked.
+
+### 5.1 Start a branch from the latest main
+Type each line and press **Enter** after each:
+```
+git switch main
+```
+```
+git pull
+```
+```
+git switch -c reset/plant-bug
+```
+
+### 5.2 Put the original code back
+Copy this whole block, paste it into the terminal, and press **Enter**:
+```
+cat > hello.py <<'EOF'
+import sys
+
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
+
+print("Hello, World")
+EOF
+```
+(This replaces `hello.py` with the original buggy version.)
+
+**Check:**
+```
+python3 hello.py Alex
+```
+**Read:** `Hello, World`. The bug is back.
+
+### 5.3 Send it through a pull request and merge it
+Type each line and press **Enter** after each:
+```
+git commit -am "Put the practice bug back"
+```
+```
+git push -u origin reset/plant-bug
+```
+```
+gh pr create --title "Put the practice bug back" --body "Resets hello.py for the next person."
+```
+```
+gh pr merge --squash --delete-branch
+```
+```
+git switch main
+```
+(It may say `Already on 'main'`. That's fine.)
+```
+git pull
+```
+
+**Check:**
+```
+python3 hello.py Alex
+```
+**Read:** `Hello, World`. The repo is ready for the next person.
 
 ---
 
