@@ -45,6 +45,25 @@ examples that aren't tied to one repo.
   what to expect at each step, without assuming a specific bug
 - **Worked example:** the current `hello.py` exercise, kept as practice
 
+### 4. Add automated tests
+
+Real teams verify fixes mostly with automated tests that run by
+themselves on every pull request, so a fix can't quietly break something
+else. Here, Step 6 (Verify) is done by hand because `hello.py` has no
+tests.
+
+Proposed: add tests, run them in Step 6, and have them run automatically
+on every pull request so a pull request can't be merged if they fail.
+
+### 5. Require a second person to review
+
+The lock on `main` currently requires 0 approvals, because one person is
+working alone and GitHub doesn't let you approve your own pull request.
+
+Proposed: once more than one person works in a repo, require at least 1
+approval from someone other than the author before a pull request can
+be merged.
+
 ## Decision needed: where `CLAUDE.md` lives for a blind repo
 
 Claude Code only follows `CLAUDE.md` if it can find it. For a repo you
