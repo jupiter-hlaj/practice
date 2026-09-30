@@ -9,7 +9,11 @@ verify, pull request, review, merge, the lock test, and revert.
 ## For the repo owner
 
 Only one learner should do the exercise at a time. Before each learner
-starts, make sure `main` is clean:
+starts, add them as a collaborator (**Settings → Collaborators → Add
+people**) so they can push branches and open pull requests. They accept
+the invitation from their email.
+
+Then make sure `main` is clean:
 
 ```
 python3 hello.py Alex
