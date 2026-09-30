@@ -78,10 +78,14 @@ git --version
 ```
 **Read:** `git version` followed by a number.
 
+**Mac and Linux:**
 ```
 python3 --version
 ```
-(On Windows, type `python` instead of `python3`.)
+**Windows:**
+```
+python --version
+```
 
 **Read:** `Python 3.` followed by more numbers.
 
@@ -308,10 +312,14 @@ Go back to 1.2.
 ## Part 2: See the bug yourself
 
 ### 2.1 Run the program
+**Mac and Linux:**
 ```
 python3 hello.py Alex
 ```
-(On Windows, type `python` instead of `python3`.)
+**Windows:**
+```
+python hello.py Alex
+```
 
 **Read:** it prints `Hello, World`.
 
@@ -632,10 +640,14 @@ issue closed.
 **Read:** a list of saved changes, newest at the top. The top one is
 your fix.
 
+**Mac and Linux:**
 ```
 ! python3 hello.py Alex
 ```
-(On Windows, type `python` instead of `python3`.)
+**Windows:**
+```
+! python hello.py Alex
+```
 
 **Read:** `Hello, Alex`. The fix is now in the official copy.
 
@@ -764,10 +776,14 @@ git switch main
 ```
 git pull
 ```
+**Mac and Linux:**
 ```
 python3 hello.py Alex
 ```
-(On Windows, type `python` instead of `python3`.)
+**Windows:**
+```
+python hello.py Alex
+```
 
 **Read:** `Hello, World`. The bug is back, and the repo is ready for the
 next person.
