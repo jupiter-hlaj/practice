@@ -532,11 +532,58 @@ git status
 ## Part 5: Reset for the next person
 
 Your fix is now in `main`, so the bug is gone. Put it back so the next
-person has something to fix. This goes through a pull request too,
-because `main` is locked.
+person has something to fix. You do this by **reverting** your fix pull
+request: GitHub creates a new pull request that undoes it, and you merge
+that.
 
-### 5.1 Start a branch from the latest main
-Type each line and press **Enter** after each:
+Do **either** 5.1 to 5.3 (on GitHub) **or** 5.A (in the terminal), then 5.4.
+
+### 5.1 Find your fix pull request (on GitHub)
+1. On the repo's home page tab, click the **Pull requests** tab
+2. Just above the list, click **Closed**
+3. Click your fix pull request (the one with `Fixes #N` in its description)
+
+### 5.2 Revert it (on GitHub)
+1. Scroll to the bottom of the **Conversation** tab. Next to the message
+   saying the pull request was merged, there is a **Revert** button.
+   Click it.
+2. GitHub opens a new pull request page, already filled in with a title
+   starting with `Revert`. Click the green **Create pull request** button.
+
+### 5.3 Merge the revert (on GitHub)
+1. On the new pull request, click the green merge button, then the green
+   confirm button that appears
+2. Click **Delete branch** when it appears
+
+Now go to 5.4.
+
+### 5.A Revert in the terminal (instead of 5.1 to 5.3)
+In the terminal, inside the `practice` folder:
+
+**Find your fix pull request's number:**
+```
+gh pr list --state merged
+```
+**Read:** a list of merged pull requests with their number, title and
+branch. Your fix is the one whose branch starts with `fix/`. Note its
+number.
+
+**Revert it** (use your fix pull request's number instead of `<number>`):
+```
+gh pr revert <number>
+```
+**Read:** a link to the new revert pull request. The number at the end
+of the link is the revert pull request's number.
+
+**Merge the revert** (use the revert pull request's number):
+```
+gh pr merge <number> --squash --delete-branch
+```
+
+Now go to 5.4.
+
+### 5.4 Update your copy and check
+In the terminal, type each line and press **Enter** after each:
 ```
 git switch main
 ```
@@ -544,55 +591,10 @@ git switch main
 git pull
 ```
 ```
-git switch -c reset/plant-bug
-```
-
-### 5.2 Put the original code back
-Copy this whole block, paste it into the terminal, and press **Enter**:
-```
-cat > hello.py <<'EOF'
-import sys
-
-name = sys.argv[1] if len(sys.argv) > 1 else "World"
-
-print("Hello, World")
-EOF
-```
-(This replaces `hello.py` with the original buggy version.)
-
-**Check:**
-```
 python3 hello.py Alex
 ```
-**Read:** `Hello, World`. The bug is back.
-
-### 5.3 Send it through a pull request and merge it
-Type each line and press **Enter** after each:
-```
-git commit -am "Put the practice bug back"
-```
-```
-git push -u origin reset/plant-bug
-```
-```
-gh pr create --title "Put the practice bug back" --body "Resets hello.py for the next person."
-```
-```
-gh pr merge --squash --delete-branch
-```
-```
-git switch main
-```
-(It may say `Already on 'main'`. That's fine.)
-```
-git pull
-```
-
-**Check:**
-```
-python3 hello.py Alex
-```
-**Read:** `Hello, World`. The repo is ready for the next person.
+**Read:** `Hello, World`. The bug is back, and the repo is ready for the
+next person.
 
 ---
 
