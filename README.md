@@ -4,11 +4,11 @@ A tiny repo for practicing the full process of fixing a bug: clone,
 reproduce, issue, problem analysis (Kepner-Tregoe), branch, plan, fix,
 verify, pull request, review, merge, the lock test, and revert.
 
-The repo is set up the way a real development team's repo is: `main` is
-locked, every change goes through a pull request that is reviewed before
-it's merged, and problems are tracked as issues. What you practice here
-is what you'd do on a real team. Two things a real team usually adds are
-not set up here: automated tests that run on every pull request, and a
+The repo is set up like a professional development environment: `main`
+is locked, every change goes through a pull request that is reviewed
+before it's merged, and problems are tracked as issues. What you practice
+here is what you'd do in professional development work. Two things a
+professional environment usually adds are not set up here: automated tests that run on every pull request, and a
 second person who has to approve each pull request. See
 [PROPOSAL.md](PROPOSAL.md).
 
