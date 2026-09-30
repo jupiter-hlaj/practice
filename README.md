@@ -27,9 +27,15 @@ Only one learner should do the exercise at a time.
    ```
    git switch main
    git pull
+   ```
+   **Mac and Linux:**
+   ```
    python3 hello.py Alex
    ```
-   (On Windows, type `python` instead of `python3`.)
+   **Windows:**
+   ```
+   python hello.py Alex
+   ```
 
    It must print `Hello, World`, which means the bug is there and ready
    for the learner. If it prints `Hello, Alex`, go to **If `main` isn't
