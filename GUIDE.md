@@ -605,12 +605,22 @@ next person.
 ## What you just did
 
 1. Got your own linked copy of the code (**clone**)
-2. Reported a problem (**issue**)
-3. Found why it happened (**root cause**)
-4. Worked on your own copy (**branch**)
-5. Asked to put the change into the official copy (**pull request**)
-6. Checked it (**review**)
-7. Put it in (**merge**), which closed the issue automatically
-8. Proved that `main` can't be changed any other way (**the lock**)
+2. Saw the problem happen yourself (**reproduce**)
+3. Reported it as a deviation statement (**issue**)
+4. Found and proved the true cause with Kepner-Tregoe: IS / IS NOT,
+   possible causes tested against the facts, verified cause
+   (**problem analysis**)
+5. Worked on your own copy (**branch**)
+6. Decided how to fix it and what could go wrong, before any code was
+   written (**plan**)
+7. Made only the planned change (**fix**)
+8. Confirmed the problem was gone and nothing else broke (**verify**)
+9. Asked to put the change into the official copy (**pull request**)
+10. Checked it (**review**)
+11. Put it in (**merge**), which closed the issue automatically
+12. Proved that `main` can't be changed any other way (**the lock**)
+13. Undid your fix through a pull request so the next person has the
+    bug to fix (**revert**)
 
-Every step left a record on GitHub that you can go back and read later.
+The issue, the analysis, the pull request, the merge and the revert all
+left a record on GitHub that you can go back and read later.
