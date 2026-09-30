@@ -7,10 +7,7 @@ verify, pull request, review, merge, the lock test, and revert.
 The repo is set up like a professional development environment: `main`
 is locked, every change goes through a pull request that is reviewed
 before it's merged, and problems are tracked as issues. What you practice
-here is what you'd do in professional development work. Two things a
-professional environment usually adds are not set up here: automated tests that run on every pull request, and a
-second person who has to approve each pull request. See
-[PROPOSAL.md](PROPOSAL.md).
+here is what you'd do in professional development work.
 
 **Start here:** [GUIDE.md](GUIDE.md). Before you begin, check its
 **Prerequisites: what you need before you start** section.
