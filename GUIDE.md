@@ -49,6 +49,10 @@ Everything this guide calls "the terminal" means this window.
 Type each command below in the terminal and press **Enter**. Compare what
 you see with the **Read** line.
 
+**If any command says `command not found`** (on Windows: `is not
+recognized`), that tool isn't installed. Go to **Installing a missing
+tool** at the end of 0.3, install it, then come back here and carry on.
+
 ```
 git --version
 ```
@@ -104,9 +108,102 @@ claude --version
 ```
 **Read:** a version number.
 
-**If any command says `command not found`** (on Windows: `is not
-recognized`), that tool isn't installed.
-Install it before continuing.
+### Installing a missing tool
+Follow the part for your system. Install only what's missing.
+
+**After installing anything, close the terminal and open a new one**
+(a new window, not just a new tab), so it can find the new tools. Then
+go back to the start of 0.3 and run the checks again.
+
+#### Mac
+Mac uses **Homebrew** to install tools. Check whether you have it:
+```
+brew --version
+```
+If that says `command not found`, install Homebrew first:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+When it finishes, it may print **Next steps** with more commands to run.
+Run those, then open a new terminal.
+
+Git, GitHub CLI and Python:
+```
+brew install git gh python3
+```
+
+Claude Code:
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+#### Windows
+Run these in **Windows Terminal** or **PowerShell**.
+
+Git:
+```
+winget install --id Git.Git -e --source winget
+```
+
+GitHub CLI:
+```
+winget install --id GitHub.cli --source winget
+```
+
+Python (this installs the Python install manager, which provides the
+`python` command):
+```
+winget install 9NQ7512CXL7T -e --accept-package-agreements --disable-interactivity
+```
+
+Claude Code:
+```
+irm https://claude.ai/install.ps1 | iex
+```
+
+#### Linux (Ubuntu and Debian)
+Git and Python:
+```
+sudo apt update
+```
+```
+sudo apt install git python3 curl
+```
+
+GitHub CLI: don't use the `gh` package from Ubuntu's own list, which
+GitHub says is out of date and broken. Copy this whole block, paste it
+into the terminal, and press **Enter**:
+```
+(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
+	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
+	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+	&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+	&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	&& sudo apt update \
+	&& sudo apt install gh -y
+```
+
+Claude Code:
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+For other Linux systems, use the official install pages listed below.
+
+#### Official install pages
+If a command above doesn't work, these pages have the current
+instructions:
+- Git: https://git-scm.com/install
+- GitHub CLI: https://github.com/cli/cli#installation
+- Python: https://www.python.org/downloads/
+- Claude Code: https://code.claude.com/docs/en/setup
+
+#### Logging in to Claude Code
+Claude Code needs a paid Claude plan (Pro, Max, Team or Enterprise) or a
+Claude Console account. The first time you run `claude`, it opens your
+browser so you can log in.
 
 ### 0.4 Arrange your screen
 You need three things visible at the same time. Put them side by side.
