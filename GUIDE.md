@@ -1,8 +1,9 @@
 # Practice Guide: Fixing a Bug the Right Way
 
 This repo has a small program with a bug in it. You will fix that bug using
-the full process: issue, branch, fix, pull request, review, merge.
-Claude Code does the work. You read, check and approve each step.
+the full process: clone, reproduce, issue, problem analysis (Kepner-Tregoe),
+branch, plan, fix, verify, pull request, review, merge, the lock test, and
+revert. Claude Code does the work. You read, check and approve each step.
 
 This guide works on Mac, Windows and Linux. Where a step is different on
 one of them, the step says so.
