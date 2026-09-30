@@ -13,7 +13,7 @@ second person who has to approve each pull request. See
 [PROPOSAL.md](PROPOSAL.md).
 
 **Start here:** [GUIDE.md](GUIDE.md). Before you begin, check its
-**What you need before you start** section.
+**Prerequisites: what you need before you start** section.
 
 ## For the repo owner
 

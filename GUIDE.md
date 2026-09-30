@@ -5,6 +5,21 @@ the full process: clone, reproduce, issue, problem analysis (Kepner-Tregoe),
 branch, plan, fix, verify, pull request, review, merge, the lock test, and
 revert. Claude Code does the work. You read, check and approve each step.
 
+## Prerequisites: what you need before you start
+
+- **A GitHub account.** It's free. Sign up at github.com if you don't
+  have one.
+- **Write access to this repo.** The repo's owner adds you as a
+  collaborator (see 0.1).
+- **A paid Claude plan** (Pro, Max, Team or Enterprise) or a Claude
+  Console account. Claude Code doesn't work on the free plan.
+- **A Mac, Windows or Linux computer where you're allowed to install
+  software.** Work computers sometimes block this, so check first.
+- **Git, the GitHub CLI, Python 3 and Claude Code.** If you don't have
+  them yet, Part 0.3 shows how to check and install them.
+
+## About this guide
+
 This guide works on Mac, Windows and Linux. Where a step is different on
 one of them, the step says so.
 
@@ -41,19 +56,6 @@ By the end of this guide you will be able to:
    direct push
 9. Undo a merged change by reverting its pull request
 10. Use the same process in any tool, because only the buttons change
-
-## What you need before you start
-
-- **A GitHub account.** It's free. Sign up at github.com if you don't
-  have one.
-- **Write access to this repo.** The repo's owner adds you as a
-  collaborator (see 0.1).
-- **A paid Claude plan** (Pro, Max, Team or Enterprise) or a Claude
-  Console account. Claude Code doesn't work on the free plan.
-- **A Mac, Windows or Linux computer where you're allowed to install
-  software.** Work computers sometimes block this, so check first.
-- **Git, the GitHub CLI, Python 3 and Claude Code.** If you don't have
-  them yet, Part 0.3 shows how to check and install them.
 
 ---
 
