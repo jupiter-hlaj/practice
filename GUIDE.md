@@ -91,14 +91,17 @@ Install it before continuing.
 
 ### 0.4 Arrange your screen
 You need three things visible at the same time. Put them side by side.
-1. **This guide**, in your browser
-2. **The repo's home page**, in a second browser tab: right-click
-   **`practice`** in the repo name at the top of this page and choose
-   **Open Link in New Tab**
+1. **This guide**, wherever you have it open: on GitHub in your browser,
+   or in a text editor on your computer
+2. **The repo's home page**, in your browser:
+   1. Open your web browser. If this guide is already open in it, press
+      **Cmd + T** to open a new tab.
+   2. Click in the address bar at the top
+   3. Type `github.com/jupiter-hlaj/practice` and press **Enter**
 3. **The terminal**
 
 **What you're looking at on the repo's home page:**
-- At the top: `<owner> / practice`, the repo name
+- At the top: `jupiter-hlaj / practice`, the repo name
 - Just below that, a row of tabs: **Code**, **Issues**, **Pull requests**,
   and more. You'll use **Code**, **Issues** and **Pull requests**.
 - In the middle: a list of files, including `CLAUDE.md`, `GUIDE.md`,
