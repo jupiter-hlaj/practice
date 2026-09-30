@@ -55,7 +55,9 @@ By the end of this guide you will be able to:
 8. Explain what the lock on `main` does, and show that it blocks a
    direct push
 9. Undo a merged change by reverting its pull request
-10. Use the same process in any tool, because only the buttons change
+10. Follow the same workflow in other Git tools, such as VS Code or
+    GitHub Desktop, which run the same Git steps behind their menus and
+    buttons
 
 ---
 
