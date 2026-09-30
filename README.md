@@ -1,4 +1,6 @@
-# practice
+# Fixing a Bug the Right Way
+
+*A hands-on exercise in the professional Git and GitHub workflow.*
 
 A tiny repo for practicing the full process of fixing a bug: clone,
 reproduce, issue, problem analysis (Kepner-Tregoe), branch, plan, fix,
