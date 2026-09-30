@@ -5,6 +5,23 @@ the full process: clone, reproduce, issue, problem analysis (Kepner-Tregoe),
 branch, plan, fix, verify, pull request, review, merge, the lock test, and
 revert. Claude Code does the work. You read, check and approve each step.
 
+This guide works on Mac, Windows and Linux. Where a step is different on
+one of them, the step says so.
+
+**Why the terminal:** this guide uses the terminal because every step is
+visible there, which makes it the clearest way to learn the process.
+Tools like VS Code run the same Git operations underneath (branch,
+commit, push, pull request, merge, revert) using buttons and panels
+instead of typed commands. The process, the order of the steps and the
+reasons for them stay the same whichever tool you use. Only where you
+click changes.
+
+**How to read this guide:**
+- **Do:** something you type or click
+- **Say:** text you type to Claude, then press **Enter**
+- **Read:** what you should see on screen
+- **Check:** how to confirm the step worked
+
 ## What you'll learn
 
 By the end of this guide you will be able to:
@@ -38,26 +55,9 @@ By the end of this guide you will be able to:
 - **Git, the GitHub CLI, Python 3 and Claude Code.** If you don't have
   them yet, Part 0.3 shows how to check and install them.
 
-This guide works on Mac, Windows and Linux. Where a step is different on
-one of them, the step says so.
-
-**Why the terminal:** this guide uses the terminal because every step is
-visible there, which makes it the clearest way to learn the process.
-Tools like VS Code run the same Git operations underneath (branch,
-commit, push, pull request, merge, revert) using buttons and panels
-instead of typed commands. The process, the order of the steps and the
-reasons for them stay the same whichever tool you use. Only where you
-click changes.
-
-**How to read this guide:**
-- **Do:** something you type or click
-- **Say:** text you type to Claude, then press **Enter**
-- **Read:** what you should see on screen
-- **Check:** how to confirm the step worked
-
 ---
 
-## Part 0: Before you start
+## Part 0: Get set up
 
 ### 0.1 Access to this repo
 To create branches and pull requests here, you need **write access** to
