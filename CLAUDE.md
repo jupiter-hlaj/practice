@@ -13,13 +13,14 @@ Never do two steps in one turn.
 2. Investigate: find the root cause. Explain it to me in plain
    language and add it to the issue as a comment.
 3. Branch: create a branch from an up-to-date main, named after
-   the issue (for example `fix/1-greeting-name`).
+   the issue (for example `fix/2-greeting-name` for issue #2).
 4. Plan: tell me how you intend to fix it before writing any code.
 5. Fix: make the change, then show me the diff and explain it.
 6. Verify: run it or test it and show me the result.
 7. Pull request: run `git status` and show me what is being committed,
    then commit, push, and open a PR with "Fixes #N" in the description.
-8. Review: run /code-review on the PR and summarize anything it found.
+8. Review: run /code-review on the PR if it's available; otherwise review
+   the PR diff yourself for bugs. Summarize anything found.
 9. Merge: only when I say so. Squash merge, delete the branch,
    switch to main, pull, and confirm the issue closed.
 
