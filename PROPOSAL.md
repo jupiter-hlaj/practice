@@ -48,8 +48,8 @@ examples that aren't tied to one repo.
 
 ### 4. Add automated tests
 
-Real teams verify fixes mostly with automated tests that run by
-themselves on every pull request, so a fix can't quietly break something
+In a professional development environment, fixes are verified mostly
+with automated tests that run by themselves on every pull request, so a fix can't quietly break something
 else. Here, Step 6 (Verify) is done by hand because `hello.py` has no
 tests.
 
